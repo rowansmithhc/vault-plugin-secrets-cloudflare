@@ -17,7 +17,7 @@ I wanted to see a version with the following changes:
 
 1. Download and enable plugin locally (TODO)
 
-2. Configure the plugin with a token capable of generating other tokens:
+2. Configure the plugin with a Cloudflare token capable of generating other tokens:
 
 ```
 vault write /cloudflare/config/token token=<token>
