@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/cloudflare/cloudflare-go"
 	"github.com/hashicorp/vault/sdk/framework"
 	"github.com/hashicorp/vault/sdk/logical"
 )
@@ -98,9 +97,9 @@ func (b *backend) secretTokenRevoke(ctx context.Context, req *logical.Request, d
 	b.Logger().Info(fmt.Sprintf("Revoking cloudflare token (%s)...", id))
 	err = c.DeleteAPIToken(ctx, id.(string))
 	if err != nil {
-		var responseError *cloudflare.APIRequestError
+		var responseError *cloudflare.Error
 		// If cloudflare returns 404 that means the token is already deleted
-		if errors.As(err, &responseError) && responseError.HTTPStatusCode() == http.StatusNotFound {
+		if errors.As(err, &responseError) && responseError.StatusCode == http.StatusNotFound {
 			return nil, nil
 		}
 		return logical.ErrorResponse(fmt.Sprintf("failed to revoke cloudflare token (%s). err: %s", id, err)), nil
