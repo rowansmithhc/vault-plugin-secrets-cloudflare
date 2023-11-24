@@ -32,7 +32,7 @@ jobs:
         goos: linux
         goarch: amd64
         pre_command: export CGO_ENABLED=0
-        build_command: go build cmd/cloudflare/main.go
+        build_command: go build -o bin/$(PLUGIN_NAME) cmd/cloudflare/main.go
 
   release-linux-arm64:
     name: release linux/arm64
@@ -45,4 +45,4 @@ jobs:
         goos: linux
         goarch: arm64
         pre_command: export CGO_ENABLED=0
-        build_command: go build cmd/cloudflare/main.go
+        build_command: go build -o bin/$(PLUGIN_NAME) cmd/cloudflare/main.go
