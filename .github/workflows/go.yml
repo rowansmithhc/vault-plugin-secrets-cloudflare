@@ -35,6 +35,7 @@ jobs:
         overwrite: true
         pre_command: export CGO_ENABLED=0
         build_flags: cmd/cloudflare/main.go
+        binary_name: YEAH
 
   release-linux-arm64:
     name: release linux/arm64
