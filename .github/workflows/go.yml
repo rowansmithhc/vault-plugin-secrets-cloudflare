@@ -33,7 +33,7 @@ jobs:
         goarch: amd64
         pre_command: export CGO_ENABLED=0
         build_command: go build cmd/cloudflare/main.go
-        output_path: vault-plugin-secrets-cloudflare
+        binary_name: vault-plugin-secrets-cloudflare
 
   release-linux-arm64:
     name: release linux/arm64
