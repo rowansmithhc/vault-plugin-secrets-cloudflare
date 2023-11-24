@@ -31,7 +31,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: linux
         goarch: amd64
-        pre_command: export CGO_ENABLED=0
+        build_command: CGO_ENABLED=0 go build cmd/cloudflare/main.go
 
   release-linux-arm64:
     name: release linux/arm64
@@ -43,4 +43,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: linux
         goarch: arm64
-        pre_command: export CGO_ENABLED=0
+        build_command: CGO_ENABLED=0 go build cmd/cloudflare/main.go
