@@ -31,7 +31,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: linux
         goarch: amd64
-        build_flags: CGO_ENABLED=0
+        pre_command: CGO_ENABLED=0
 
   release-linux-arm64:
     name: release linux/arm64
@@ -43,4 +43,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: linux
         goarch: arm64
-        build_flags: CGO_ENABLED=0
+        pre_command: CGO_ENABLED=0
