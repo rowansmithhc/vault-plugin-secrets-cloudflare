@@ -31,9 +31,9 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: linux
         goarch: amd64
+        goversion: 1.21.4
         pre_command: export CGO_ENABLED=0
         build_command: go build cmd/cloudflare/main.go
-        binary_name: vault-plugin-secrets-cloudflare
 
   release-linux-arm64:
     name: release linux/arm64
