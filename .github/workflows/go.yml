@@ -32,8 +32,9 @@ jobs:
         goos: linux
         goarch: amd64
         goversion: 1.21.4
+        overwrite: true
         pre_command: export CGO_ENABLED=0
-        build_command: go build -o vault-plugin-secrets-cloudflare cmd/cloudflare/main.go
+        build_flags: cmd/cloudflare/main.go
 
   release-linux-arm64:
     name: release linux/arm64
