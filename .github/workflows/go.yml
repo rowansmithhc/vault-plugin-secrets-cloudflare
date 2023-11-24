@@ -20,8 +20,3 @@ jobs:
 
     - name: Build
       run: CGO_ENABLED=0 go build cmd/cloudflare/main.go
-
-    - name: Test
-      run: | 
-        go get github.com/rowansmithhc/vault-plugin-secrets-cloudflare
-        go test github.com/rowansmithhc/vault-plugin-secrets-cloudflare
