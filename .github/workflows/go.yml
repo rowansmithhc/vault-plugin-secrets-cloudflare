@@ -49,3 +49,14 @@ jobs:
         goarch: arm64
         pre_command: export CGO_ENABLED=0
         build_flags: cmd/cloudflare/main.go
+
+  release-linux-amd64-default:
+    name: release linux/amd64-default
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: wangyoucao577/go-release-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        goos: linux
+        goarch: amd64
