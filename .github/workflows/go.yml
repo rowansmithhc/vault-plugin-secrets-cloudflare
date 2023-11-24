@@ -21,10 +21,24 @@ jobs:
     - name: Build
       run: CGO_ENABLED=0 go build cmd/cloudflare/main.go
 
+  release-linux-amd64:
+    name: release linux/amd64
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v3
-    - name: Create a Release
-      uses: elgohr/Github-Release-Action@v5
-      env:
-        GH_TOKEN: ${{ github.token }}
+    - uses: wangyoucao577/go-release-action@v1
       with:
-        title: vault-plugin-secrets-cloudflare
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        goos: linux
+        goarch: amd64
+
+  release-linux-arm64:
+    name: release linux/arm64
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: wangyoucao577/go-release-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        goos: linux
+        goarch: arm64
